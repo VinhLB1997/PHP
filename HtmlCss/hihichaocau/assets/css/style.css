@@ -1,0 +1,20 @@
+div.wrapper-page{
+    width: 100%;
+}
+div.container-header{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 150px;
+    box-shadow: 5px 5px 5px #adaaa859;
+}
+
+div.container-header img.logo{
+    margin: 0 auto;
+}
+div.wrapper-content{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}

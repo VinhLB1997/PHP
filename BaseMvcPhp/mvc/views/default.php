@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Challeng</title>
     <meta charset="utf-8">
@@ -8,9 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
         .row.content {
@@ -58,7 +54,10 @@
             </div>
 
             <div class="col-sm-9">
-                <?php if(isset($data['Page'])) require_once './mvc/views/pages/'. $data['Page'].'.php'?>
+                <?php if (isset($data['Page'])) {
+    require_once './mvc/views/pages/' . $data['Page'] . '.php';
+}
+?>
             </div>
         </div>
     </div>
@@ -66,6 +65,8 @@
     <footer class="container-fluid">
         <p>Footer Text</p>
     </footer>
-
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </html>
