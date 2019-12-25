@@ -27,31 +27,50 @@ div.container-header img.logo {
   margin: 0 auto;
 }
 div.slogan-page {
-  height: 130px;
+  height: 50px;
   margin-top: 1rem;
 }
 div.slogan-page h1 {
   font-family: "Dancing Script", cursive;
-  font-size: 18pt;
+  font-size: 20pt;
 }
-div.slogan-page div.content-slogan > div {
+/* div.slogan-page div.content-slogan > div {
   position: absolute;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #339d40;
-}
+} */
 div.wrapper-content {
   width: 70%;
   margin: 0 auto;
   margin-top: 0.5rem;
+}
+div.wrapper-content div.wrapper-content-mode2 {
   display: grid;
   grid-template-columns: 70% 30%;
 }
+/* Begin Style Mode 1 */
 div.wrapper-content div.content-left {
   border: 1px solid #339d40;
   padding: 1rem;
 }
+/* End Style Mode 1 */
+/* Begin Style Mode 2 */
+div.wrapper-content div.wrapper-content-mode1 {
+  width: 100%;
+}
+div.wrapper-content div.wrapper-content-mode1 div.content {
+  width: 80%;
+  margin: 0 auto;
+}
+div.wrapper-content
+  div.wrapper-content-mode1
+  div.content
+  table.table-list-song {
+  background: url(../img/bg_table.png);
+}
+/* End Style Mode 2 */
 /* Style clock */
 #clockdiv {
   font-family: "Dancing Script", cursive;
