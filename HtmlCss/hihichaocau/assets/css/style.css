@@ -70,6 +70,21 @@ div.wrapper-content
   table.table-list-song {
   background: url(../img/bg_table.png);
 }
+div.wrapper-content
+  div.wrapper-content-mode1
+  div.content
+  table.table-list-song
+  thead
+  tr
+  th {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(119, 90, 46, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
 /* End Style Mode 2 */
 /* Style clock */
 #clockdiv {

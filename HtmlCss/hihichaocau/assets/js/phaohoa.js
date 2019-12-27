@@ -1,173 +1,218 @@
-var bits = 85; // how many bits
-var speed = 17; // how fast - smaller is faster
-var bangs = 5; // how many can be launched simultaneously (note that using too many can slow the script down)
-var colours = new Array("#03f", "#f03", "#0e0", "#93f", "#0cf", "#f93", "#f0c");
-//                     blue    red     green   purple  cyan    orange  pink
-
-/****************************
- *      Fireworks Effect     *
- *(c)2004-14 mf2fm web-design*
- *  http://www.mf2fm.com/rv  *
- * DON'T EDIT BELOW THIS BOX *
- ****************************/
-var bangheight = new Array();
-var intensity = new Array();
-var colour = new Array();
-var Xpos = new Array();
-var Ypos = new Array();
-var dX = new Array();
-var dY = new Array();
-var stars = new Array();
-var decay = new Array();
-var swide = 1000;
-var shigh = 600;
-var boddie;
-
-if (typeof "addRVLoadEvent" != "function")
-  function addRVLoadEvent(funky) {
-    var oldonload = window.onload;
-    if (typeof oldonload != "function") window.onload = funky;
-    else
-      window.onload = function() {
-        if (oldonload) oldonload();
-        funky();
-      };
+/**
+ * X-Team Fireworks
+ * @author Andrew Valums
+ *
+ * Copyright (c) 2009 X-Team, http://x-team.com
+ */
+if (!Xteam) var Xteam = {};
+Xteam.fireworkShow = function(a, c) {
+  function e() {
+    a = j(a).eq(0);
+    a.css("position") == "static" && a.css("position", "relative");
+    h = j("<canvas></canvas>");
+    if (!h[0].getContext) return false;
+    h.attr({ height: a.height(), width: a.width() })
+      .css({
+        position: "absolute",
+        display: "block",
+        top: 0,
+        left: 0,
+        zIndex: 99999
+      })
+      .appendTo(a);
+    n = Xteam.Canvas.scene(h[0]);
+    l = setInterval(function() {
+      Math.random() > 0.75 || Xteam.firework(n);
+    }, 1.5 * c);
+    k = true;
   }
-
-addRVLoadEvent(light_blue_touchpaper);
-
-function light_blue_touchpaper() {
-  if (document.getElementById) {
-    var i;
-    boddie = document.createElement("div");
-    boddie.style.position = "fixed";
-    boddie.style.top = "0px";
-    boddie.style.left = "0px";
-    boddie.style.overflow = "visible";
-    boddie.style.zIndex = "9999";
-    boddie.style.width = "1px";
-    boddie.style.height = "1px";
-    boddie.style.backgroundColor = "transparent";
-    document.body.appendChild(boddie);
-    set_width();
-    for (i = 0; i < bangs; i++) {
-      write_fire(i);
-      launch(i);
-      setInterval("stepthrough(" + i + ")", speed);
+  var d = {},
+    j = jQuery,
+    l,
+    n,
+    h,
+    k = false;
+  c = c || 900;
+  e();
+  d.remove = function() {
+    if (k) {
+      clearInterval(l);
+      n.destroy();
+      n = null;
+      h.remove();
+      a = h = null;
+    }
+  };
+  return d;
+};
+Xteam || (Xteam = {});
+Xteam.firework = function(a) {
+  function c() {
+    k = 360 * Math.random();
+    f = Xteam.Color.hslToRgb([k, Math.random(), 0.2 + 0.8 * Math.random()]);
+    i = (a.getCanvas().width - h * 2) * Math.random() + h;
+    m = (a.getCanvas().height / 2 - h) * Math.random() + h;
+    o = a.getCanvas().height;
+    a.register(j);
+  }
+  function e() {
+    if (o > m) {
+      o -= 10;
+      l.fillStyle = "rgb(" + f[0] + "," + f[1] + "," + f[2] + ")";
+      l.beginPath();
+      l.arc(Math.round(i), Math.round(o), 2, 0, 2 * Math.PI, true);
+      l.fill();
+    } else {
+      a.remove(j);
+      d();
     }
   }
-}
-
-function write_fire(N) {
-  var i, rlef, rdow;
-  stars[N + "r"] = createDiv("|", 12);
-  boddie.appendChild(stars[N + "r"]);
-  for (i = bits * N; i < bits + bits * N; i++) {
-    stars[i] = createDiv("*", 13);
-    boddie.appendChild(stars[i]);
-  }
-}
-
-function createDiv(char, size) {
-  var div = document.createElement("div");
-  div.style.font = size + "px monospace";
-  div.style.position = "absolute";
-  div.style.zIndex = "9999";
-  div.style.backgroundColor = "transparent";
-  div.appendChild(document.createTextNode(char));
-  return div;
-}
-
-function launch(N) {
-  colour[N] = Math.floor(Math.random() * colours.length);
-  Xpos[N + "r"] = swide * 0.5;
-  Ypos[N + "r"] = shigh - 5;
-  bangheight[N] = Math.round((0.5 + Math.random()) * shigh * 0.4);
-  dX[N + "r"] = ((Math.random() - 0.5) * swide) / bangheight[N];
-  if (dX[N + "r"] > 1.25) stars[N + "r"].firstChild.nodeValue = "/";
-  else if (dX[N + "r"] < -1.25) stars[N + "r"].firstChild.nodeValue = "\\";
-  else stars[N + "r"].firstChild.nodeValue = "|";
-  stars[N + "r"].style.color = colours[colour[N]];
-}
-
-function bang(N) {
-  var i,
-    Z,
-    A = 0;
-  for (i = bits * N; i < bits + bits * N; i++) {
-    Z = stars[i].style;
-    Z.left = Xpos[i] + "px";
-    Z.top = Ypos[i] + "px";
-    if (decay[i]) decay[i]--;
-    else A++;
-    if (decay[i] == 15) Z.fontSize = "7px";
-    else if (decay[i] == 7) Z.fontSize = "2px";
-    else if (decay[i] == 1) Z.visibility = "hidden";
-    if (decay[i] > 1 && Math.random() < 0.1) {
-      Z.visibility = "hidden";
-      setTimeout("stars[" + i + '].style.visibility="visible"', speed - 1);
+  function d() {
+    for (var p = 40 + Math.floor(50 * Math.random()); p--; ) {
+      var q = Xteam.Color.hslToRgb([
+        k,
+        Math.random(),
+        0.2 + 0.8 * Math.random()
+      ]);
+      new n(a, q, i, m, 10);
     }
-    Xpos[i] += dX[i];
-    Ypos[i] += dY[i] += 1.25 / intensity[N];
   }
-  if (A != bits) setTimeout("bang(" + N + ")", speed);
-}
-
-function stepthrough(N) {
-  var i, M, Z;
-  var oldx = Xpos[N + "r"];
-  var oldy = Ypos[N + "r"];
-  Xpos[N + "r"] += dX[N + "r"];
-  Ypos[N + "r"] -= 4;
-  if (Ypos[N + "r"] < bangheight[N]) {
-    M = Math.floor(Math.random() * 3 * colours.length);
-    intensity[N] = 5 + Math.random() * 4;
-    for (i = N * bits; i < bits + bits * N; i++) {
-      Xpos[i] = Xpos[N + "r"];
-      Ypos[i] = Ypos[N + "r"];
-      dY[i] = (Math.random() - 0.5) * intensity[N];
-      dX[i] = (Math.random() - 0.5) * (intensity[N] - Math.abs(dY[i])) * 1.25;
-      decay[i] = 16 + Math.floor(Math.random() * 16);
-      Z = stars[i];
-      if (M < colours.length) Z.style.color = colours[i % 2 ? colour[N] : M];
-      else if (M < 2 * colours.length) Z.style.color = colours[colour[N]];
-      else Z.style.color = colours[i % colours.length];
-      Z.style.fontSize = "13px";
-      Z.style.visibility = "visible";
-    }
-    bang(N);
-    launch(N);
+  var j = { draw: e },
+    l = a.getContext(),
+    n = Xteam.FireworkParticle,
+    h = 70,
+    k,
+    i,
+    m,
+    o,
+    f;
+  c();
+  return j;
+};
+Xteam.FireworkParticle = function(a, c, e, d) {
+  this.scene = a;
+  this.color = c;
+  this.x = Math.round(e);
+  this.y = Math.round(d);
+  this.rotate = 2 * Math.PI * Math.random();
+  this.opacity = 100;
+  this.f = 0;
+  this.max = 40 + 10 * Math.random();
+  this.size = 0;
+  this.speed = 4 * Math.random();
+  a.register(this);
+};
+Xteam.FireworkParticle.prototype = {
+  getStyle: function() {
+    return (
+      "rgba(" +
+      this.color[0] +
+      "," +
+      this.color[1] +
+      "," +
+      this.color[2] +
+      "," +
+      this.opacity / 100 +
+      ")"
+    );
+  },
+  draw: function(a, c) {
+    if (this.f < this.max) {
+      this.f++;
+      this.size += this.speed;
+      this.speed *= 0.95;
+      if (this.f > 0.8 * this.max) this.opacity -= 6;
+      c.lineWidth = 1;
+      c.save();
+      c.translate(this.x, this.y);
+      c.rotate(this.rotate);
+      c.strokeStyle = this.getStyle();
+      c.beginPath();
+      c.moveTo(Math.round(0.85 * this.size), 0);
+      c.lineTo(Math.round(this.size), 0);
+      c.stroke();
+      c.restore();
+    } else this.scene.remove(this);
   }
-  stars[N + "r"].style.left = oldx + "px";
-  stars[N + "r"].style.top = oldy + "px";
-}
-
-window.onresize = set_width;
-function set_width() {
-  var sw_min = 999999;
-  var sh_min = 999999;
-  if (document.documentElement && document.documentElement.clientWidth) {
-    if (document.documentElement.clientWidth > 0)
-      sw_min = document.documentElement.clientWidth;
-    if (document.documentElement.clientHeight > 0)
-      sh_min = document.documentElement.clientHeight;
+};
+Xteam || (Xteam = {});
+if (!Xteam.Canvas) Xteam.Canvas = {};
+Xteam.Canvas.scene = function(a) {
+  function c(f) {
+    i.push(f);
   }
-  if (typeof self.innerWidth != "undefined" && self.innerWidth) {
-    if (self.innerWidth > 0 && self.innerWidth < sw_min)
-      sw_min = self.innerWidth;
-    if (self.innerHeight > 0 && self.innerHeight < sh_min)
-      sh_min = self.innerHeight;
+  function e() {
+    for (var f = m.length; f--; ) i[m[f]] = null;
+    m = [];
+    for (f = i.length; f--; ) i[f] || i.splice(m[f], 1);
   }
-  if (document.body.clientWidth) {
-    if (document.body.clientWidth > 0 && document.body.clientWidth < sw_min)
-      sw_min = document.body.clientWidth;
-    if (document.body.clientHeight > 0 && document.body.clientHeight < sh_min)
-      sh_min = document.body.clientHeight;
+  function d(f) {
+    for (var p = i.length; p--; )
+      if (f === i[p]) {
+        m.push(p);
+        break;
+      }
   }
-  if (sw_min == 999999 || sh_min == 999999) {
-    sw_min = 800;
-    sh_min = 600;
+  function j() {
+    clearInterval(o);
   }
-  swide = sw_min;
-  shigh = sh_min;
-}
+  function l() {
+    return k;
+  }
+  function n() {
+    return a;
+  }
+  var h = { register: c, remove: d, getContext: l, getCanvas: n, destroy: j },
+    k = a.getContext("2d"),
+    i = [],
+    m = [],
+    o = setInterval(function() {
+      k.clearRect(0, 0, a.width, a.height);
+      for (var f = i.length; f--; )
+        typeof i[f].draw == "function" && i[f].draw(h, k);
+      e();
+    }, 30);
+  return h;
+};
+Xteam || (Xteam = {});
+if (!Xteam.Color) Xteam.Color = {};
+Xteam.Color.hslToRgb = function(a) {
+  var c = a[0],
+    e = a[1];
+  a = a[2];
+  if (e == 0) r = g = b = a;
+  e = a < 0.5 ? a * (1 + e) : a + e - a * e;
+  a = 2 * a - e;
+  c /= 360;
+  var d = [];
+  d[0] = c + 1 / 3;
+  d[1] = c;
+  d[2] = c - 1 / 3;
+  for (c = 3; c--; ) {
+    d[c] %= 1;
+    d[c] =
+      d[c] < 1 / 6
+        ? a + (e - a) * 6 * d[c]
+        : d[c] < 0.5
+        ? e
+        : d[c] < 2 / 3
+        ? a + (e - a) * 6 * (2 / 3 - d[c])
+        : a;
+    d[c] *= 255;
+    d[c] = Math.floor(d[c]);
+    if (d[c] < 0) d[c] = 0;
+  }
+  return d;
+};
+Xteam.Color.hslToRgb.test = function() {
+  function a(e, d) {
+    for (var j = e.lenght; j--; )
+      if (e[j] !== d[j]) throw Error("Got " + e + ", expected " + d);
+    console.log("success");
+  }
+  var c = Xteam.Color.hslToRgb;
+  a(c([0, 1, 1]), [1, 0, 0]);
+  a(c([120, 0.5, 1]), [0.5, 1, 0.5]);
+  a(c([240, 1, 0.5]), [0, 0, 0.5]);
+  c([104.15549071384422, 0.9040453462245244, 0.2855993456480115]);
+};
