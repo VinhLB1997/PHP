@@ -1,6 +1,45 @@
+/* General */
+i {
+  cursor: pointer;
+}
+.text-blue {
+  color: #2185d0;
+}
+
+.text-red {
+  color: red;
+}
+
+button.submit {
+  background-color: #21ba45 !important;
+  color: #fff !important;
+  text-shadow: none;
+  background-image: none;
+}
+
+.error {
+  background: #fff6f6 !important ;
+  border-color: #e0b4b4 !important;
+  color: #9f3a38 !important;
+  border-radius: "" !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.fs-1 {
+  font-size: 1.5em !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+.d-none {
+  display: none !important;
+}
+/*  */
 body {
   font-family: "Roboto", sans-serif;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   background-image: url("../img/hinh-nen-tet.jpg");
 }
 .text-center {
@@ -27,8 +66,8 @@ div.container-header img.logo {
   margin: 0 auto;
 }
 div.slogan-page {
-  height: 50px;
-  margin-top: 1rem;
+  height: 20px;
+  margin-top: 0.5rem;
 }
 div.slogan-page h1 {
   font-family: "Dancing Script", cursive;
@@ -44,16 +83,34 @@ div.slogan-page h1 {
 div.wrapper-content {
   width: 70%;
   margin: 0 auto;
-  margin-top: 0.5rem;
+}
+
+div.wrapper-header {
+  overflow:auto;
+}
+div.wrapper-header div:first-child {
+  float: right;
+  padding: 1rem;
 }
 div.wrapper-content div.wrapper-content-mode2 {
+  width: 100%;  
+}
+div.wrapper-content div.wrapper-content-mode2 div:first-child {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+div.wrapper-content div.wrapper-content-mode2 div.content {
+  width: 100%;
+  margin: 0 auto;
+}
+div.wrapper-content div.wrapper-content-mode2 div.content {
   display: grid;
   grid-template-columns: 70% 30%;
 }
 /* Begin Style Mode 1 */
 div.wrapper-content div.content-left {
-  border: 1px solid #339d40;
-  padding: 1rem;
+
 }
 /* End Style Mode 1 */
 /* Begin Style Mode 2 */
