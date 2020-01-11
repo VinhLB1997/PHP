@@ -1,7 +1,7 @@
 var pictureSrc =
   "https://1.bp.blogspot.com/-CXx9jt2JMRk/Vq-Lh5fm88I/AAAAAAAASwo/XivooDn_oSY/s1600/hoamai.png"; //Link ảnh hoa muốn hiển thị trên web
-var pictureWidth = 15; //Chiều rộng của hoa mai or đào
-var pictureHeight = 15; //Chiều cao của hoa mai or đào
+var pictureWidth = 16; //Chiều rộng của hoa mai or đào
+var pictureHeight = 16; //Chiều cao của hoa mai or đào
 var numFlakes = 10; //Số bông hoa xuất hiện cùng một lúc trên trang web
 var downSpeed = 0.01; //Tốc độ rơi của hoa
 var lrFlakes = 10; //Tốc độ các bông hoa giao động từ bên trai sang bên phải và ngược lại

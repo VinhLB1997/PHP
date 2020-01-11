@@ -10,6 +10,10 @@ i {
   color: red;
 }
 
+.text-green {
+  color: green;
+}
+
 button.submit {
   background-color: #21ba45 !important;
   color: #fff !important;
@@ -36,12 +40,45 @@ button.submit {
 .d-none {
   display: none !important;
 }
+
+.notify-red {
+  color: red;
+  font-style: italic;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 0.8; /* Firefox */
+  font-style: italic;
+  font-size: 11pt;
+}
+
+.sub-title {
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, 0.6);
+}
 /*  */
 body {
   font-family: "Roboto", sans-serif;
-  /* overflow-y: hidden; */
-  background-image: url("../img/hinh-nen-tet.jpg");
+  background-color: #fff3ba;
 }
+/* Style scroll */
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background-color: #fff3ba;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: #fff3ba;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f8be87;
+}
+/* End */
 .text-center {
   text-align: center !important;
 }
@@ -54,6 +91,7 @@ body {
 }
 div.wrapper-page {
   width: 100%;
+  /* background: url(../img/bg-table-music.png); */
 }
 div.container-header {
   display: grid;
@@ -64,6 +102,10 @@ div.container-header {
 
 div.container-header img.logo {
   margin: 0 auto;
+}
+div.container-content {
+  width: 100%;
+  background: url(../img/bg-table-music.png);
 }
 div.slogan-page {
   height: 20px;
@@ -83,6 +125,7 @@ div.slogan-page h1 {
 div.wrapper-content {
   width: 70%;
   margin: 0 auto;
+  /* background: url(../img/bg-table-music.png); */
 }
 
 div.wrapper-header {
@@ -92,6 +135,71 @@ div.wrapper-header div:first-child {
   float: right;
   padding: 1rem;
 }
+
+/* Begin Style Mode 1 */
+div.wrapper-content div.wrapper-content-mode1 {
+  width: 100%;
+}
+div.wrapper-content div.wrapper-content-mode1 div.content {
+  width: 80%;
+  margin: 0 auto;
+}
+div.wrapper-content
+  div.wrapper-content-mode1
+  div.content
+  table.table-list-song {
+  background: transparent;
+  margin-top: 0;
+}
+div.wrapper-content
+  div.wrapper-content-mode1
+  div.content
+  table.table-list-song
+  thead
+  tr
+  th {
+  background: rgb(199, 124, 47);
+  /* background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(190, 100, 9, 1) 0%,
+    rgba(247, 247, 247, 1) 100%
+  ); */
+}
+
+table.table-list-song thead tr th:nth-child(2) {
+  text-align: right;
+}
+table.table-list-song tbody tr td:nth-child(1) {
+  width: 50%;
+}
+table.table-list-song tbody tr td:nth-child(2) {
+  width: 38%;
+}
+table.table-list-song tbody tr td:nth-child(3) {
+  width: 12%;
+}
+table.table-list-song tfoot {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(219, 180, 115, 1) 0%,
+    rgba(239, 241, 197, 1) 100%
+  );
+}
+i.next {
+  float: right;
+}
+i.next,
+i.previous {
+  color: green;
+  font-size: 16pt;
+}
+
+/* End Style Mode 1 */
+
+/* Begin Style Mode 2 */
 div.wrapper-content div.wrapper-content-mode2 {
   width: 100%;
 }
@@ -106,40 +214,52 @@ div.wrapper-content div.wrapper-content-mode2 div.content {
 }
 div.wrapper-content div.wrapper-content-mode2 div.content {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 50% 50%;
 }
-/* Begin Style Mode 1 */
-div.wrapper-content div.content-left {
-}
-/* End Style Mode 1 */
-/* Begin Style Mode 2 */
-div.wrapper-content div.wrapper-content-mode1 {
-  width: 100%;
-}
-div.wrapper-content div.wrapper-content-mode1 div.content {
-  width: 80%;
-  margin: 0 auto;
-}
-div.wrapper-content
-  div.wrapper-content-mode1
+
+div.wrapper-content-mode2
   div.content
-  table.table-list-song {
-  background: url(../img/bg_box_music.png);
-}
-div.wrapper-content
-  div.wrapper-content-mode1
-  div.content
-  table.table-list-song
+  div.content-left
+  table.table-list-song-gift
   thead
   tr
-  th {
+  th,
+div.wrapper-content-mode2
+  div.content
+  div.content-left
+  table.table-list-song-gift
+  tfoot {
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(119, 90, 46, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(207, 124, 46, 1) 0%,
+    rgba(232, 209, 169, 1) 100%
   );
+}
+div.wrapper-content-mode2
+  div.content
+  div.content-left
+  table.table-list-song-gift
+  tbody {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(227, 213, 140, 1) 0%,
+    rgba(252, 247, 216, 1) 100%
+  );
+}
+i.info-gift {
+  font-style: italic;
+  font-size: 11pt;
+}
+i.next-gift {
+  float: right;
+}
+i.next-gift,
+i.previous-gift {
+  /* color: cornflowerblue; */
 }
 /* End Style Mode 2 */
 /* Style clock */

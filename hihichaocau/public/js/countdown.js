@@ -40,5 +40,5 @@ function initializeClock(id, endtime) {
 }
 
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-var countdown = new Date("01 Jan 2020 00:00:00");
+var countdown = new Date("28 Jan 2020 00:00:00");
 initializeClock("clockdiv", countdown);

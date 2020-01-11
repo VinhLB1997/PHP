@@ -10,4 +10,8 @@ class BaseController
     {
         require_once "./mvc/views/$view.php";
     }
+    public function viewPagination($view, $data = [])
+    {
+        require_once "./mvc/views/pages/$view.php";
+    }
 }
