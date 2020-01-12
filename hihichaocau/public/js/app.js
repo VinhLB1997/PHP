@@ -111,10 +111,10 @@ $(document).ready(function() {
     if (error > 0) {
       return false;
     } else {
-      var url = base + "/PHP/hihichaocau/Home/handleSubmitSongGift";
+      // let url = base + "/Home/handleSubmitSongGift";
       $.ajax({
         method: "POST",
-        url: url,
+        url: `${base}/Home/handleSubmitSongGift`,
         data: $("#form-gift").serialize(),
         success: function(result) {
           if (result == "false") {
@@ -130,7 +130,7 @@ $(document).ready(function() {
             $.ajax({
               async: false,
               method: "POST",
-              url: "http://localhost/PHP/hihichaocau/Home/paginationSongGift",
+              url: `${base}/Home/paginationSongGift`,
               data: { pageGift: pageGift },
               success: function(result) {
                 $(
@@ -176,7 +176,7 @@ $(document).ready(function() {
     }
     $.ajax({
       method: "POST",
-      url: "http://localhost/PHP/hihichaocau/Home/pagination",
+      url: `${base}/Home/pagination`,
       data: { page: page },
       success: function(result) {
         $("table.table-list-song tbody, table.table-list-song tfoot").remove();
@@ -192,7 +192,7 @@ $(document).ready(function() {
     }
     $.ajax({
       method: "POST",
-      url: "http://localhost/PHP/hihichaocau/Home/pagination",
+      url: `${base}/Home/pagination`,
       data: { page: page },
       success: function(result) {
         $("table.table-list-song tbody, table.table-list-song tfoot").remove();
@@ -207,7 +207,7 @@ $(document).ready(function() {
       .trim();
     $.ajax({
       method: "POST",
-      url: "http://localhost/PHP/hihichaocau/Home/pagination",
+      url: `${base}/Home/pagination`,
       data: { page: page, keyword: key_word },
       success: function(result) {
         $("table.table-list-song tbody, table.table-list-song tfoot").remove();
@@ -226,7 +226,7 @@ $(document).ready(function() {
     }
     $.ajax({
       method: "POST",
-      url: "http://localhost/PHP/hihichaocau/Home/paginationSongGift",
+      url: `${base}/Home/paginationSongGift`,
       data: { pageGift: pageGift },
       success: function(result) {
         $(
@@ -246,7 +246,7 @@ $(document).ready(function() {
     }
     $.ajax({
       method: "POST",
-      url: "http://localhost/PHP/hihichaocau/Home/paginationSongGift",
+      url: `${base}/Home/paginationSongGift`,
       data: { pageGift: pageGift },
       success: function(result) {
         $(
