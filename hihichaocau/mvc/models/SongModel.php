@@ -3,7 +3,7 @@ class SongModel extends Database
 {
     public function getAllSongs($limit = 10, $offset = 0)
     {
-        $sql = "SELECT * FROM songs LIMIT :offset,:record";
+        $sql = "SELECT * FROM songs ORDER BY name_song ASC LIMIT :offset,:record";
         // Sử đụng Prepare
         $stmt = $this->conn->prepare($sql);
         // Bind param

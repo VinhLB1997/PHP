@@ -8,9 +8,9 @@
         </td>
         <td><?=$song['name_singer']?></td>
         <td class="action-song" data-song-id="<?=$song['link']?>">
-            <i class="circular play icon play-music text-blue link" title="Play Music"></i>
+            <i class="circular play icon play-music text-blue link" title="Phát nhạc"></i>
             <i class="circular gift icon text-red"
-                title="You can sent song with message for your friend"></i>
+                title="Gửi bài hát và lời nhắn tới ai đó"></i>
         </td>
     </tr>
 <?php }?>

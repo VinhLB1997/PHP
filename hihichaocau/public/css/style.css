@@ -1,4 +1,9 @@
 /* General */
+strong {
+  font-weight: bold !important;
+  /* font-style: italic; */
+  color: red;
+}
 i {
   cursor: pointer;
 }
@@ -123,7 +128,7 @@ div.slogan-page h1 {
   border: 1px solid #339d40;
 } */
 div.wrapper-content {
-  width: 70%;
+  width: 73%;
   margin: 0 auto;
   /* background: url(../img/bg-table-music.png); */
 }
@@ -204,7 +209,7 @@ div.wrapper-content div.wrapper-content-mode2 {
   width: 100%;
 }
 div.wrapper-content div.wrapper-content-mode2 div:first-child {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 1rem;
 }
@@ -215,6 +220,27 @@ div.wrapper-content div.wrapper-content-mode2 div.content {
 div.wrapper-content div.wrapper-content-mode2 div.content {
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+div.wrapper-content div.wrapper-content-mode2 div.content div.comment-facebook {
+  max-height: 620px;
+  overflow: auto;
+  background-color: #fff3ba;
+  border-radius: 0.5rem;
+}
+
+div.comment-facebook::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff3ba;
+}
+
+div.comment-facebook::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fff3ba;
+}
+div.comment-facebook::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff3ba;
 }
 
 div.wrapper-content-mode2
@@ -249,6 +275,15 @@ div.wrapper-content-mode2
     rgba(227, 213, 140, 1) 0%,
     rgba(252, 247, 216, 1) 100%
   );
+}
+table.table-list-song-gift tbody tr td:nth-child(1) {
+  width: 45%;
+}
+table.table-list-song-gift tbody tr td:nth-child(2) {
+  width: 35%;
+}
+table.table-list-song-gift tbody tr td:nth-child(3) {
+  width: 18%;
 }
 i.info-gift {
   font-style: italic;

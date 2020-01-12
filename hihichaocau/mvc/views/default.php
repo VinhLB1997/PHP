@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./public/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
     <meta property="fb:app_id" content="1196311627241788" />
-    <meta property="fb:admins" content="100005689621982"/>
+    <meta property="fb:admins" content="101601171384340"/>
 </head>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=1196311627241788"></script>
@@ -38,11 +38,11 @@
     <!-- <div
         style="position:fixed;bottom:-50px;left:0;width:100%;height:100%;background:url(https://3.bp.blogspot.com/-uQrQaR3IkxE/WF9dDUUVLLI/AAAAAAAAAdw/VKNA5q7FJSQX5OWofOiPafEEENaoBcY9wCLcB/s1600/nentet.png) repeat-x bottom left;">
     </div> -->
-    <div class="ui toggle checkbox" style="position:fixed;z-index:99999;bottom:10px;right:5px">
+    <div class="ui toggle checkbox" style="position:fixed;z-index:99999;bottom:10px;left:5px">
         <input type="checkbox" name="firework" id="firework">
         <label style="color:red; font-weight: bold;">Pháo hoa</label>
     </div>
-    <img style="position:fixed;z-index:9999;bottom:5px;left:0px"
+    <img style="position:fixed;z-index:9999;bottom:10px;right:5px"
         src="http://3.bp.blogspot.com/-4Zt-ZB4tols/UsA_qIR0w9I/AAAAAAAAA3w/Ffyy-5OqGec/s320/banner_header.png" />
     <div class="wrapper-page">
         <div class="container-header">
@@ -75,8 +75,7 @@
         <div class="container-content">
             <div class="slogan-page">
                 <h1 class="text-center">
-                    <marquee width="100%" behavior="alternate" direction="right">Đời sẽ dịu dàng hơn biết mấy khi con người
-                        biết đặt mình vào vị trí của nhau</marquee>
+                    <marquee width="100%" behavior="alternate" direction="right">Chúc mọi người nghe nhạc vui vẻvẻ</marquee>
                 </h1>
             </div>
             <div class="wrapper-content">
@@ -88,7 +87,7 @@
                             <label>&nbsp;</label>
                         </div>
                         <a class="section">Share</a>
-                        <i class="question circle outline icon divider fs-1 link" title="Add users to your feed"></i>
+                        <i class="question circle outline icon divider fs-1 link" title="Chuyển chế độ hiển thị"></i>
                     </div>
                 </div>
                 <div id="wrapper-content-mode1">
@@ -97,7 +96,7 @@
                             <table class="ui red table selectable table-list-song">
                                 <thead>
                                     <tr>
-                                        <th>Danh sach bai hat</th>
+                                        <th>Tất cả bài hát</th>
                                         <th colspan="2">
                                             <div class="ui search">
                                                 <div class="ui icon input">
@@ -114,27 +113,20 @@
                     </div>
                 </div>
                 <div class="wrapper-content-mode2 d-none">
-                    <!-- <div class="wrapper-header-mode2">
-                        <div class="ui pointing secondary menu">
-                            <a class="item active" data-tab="first">Danh sach bai hat duoc tang</a>
-                            <a class="item" data-tab="second">Phong chat</a>
-                        </div>
-                    </div> -->
                     <div class="content">
                         <div class="content-left">
                             <table class="ui orange table selectable table-list-song-gift">
                                 <thead>
                                     <tr>
                                         <th colspan="3">
-                                            Danh sach bai hat</th>
+                                            Bài hát được tặng</th>
                                     </tr>
                                 </thead>
                                 <?php require_once './mvc/views/pages/listSongGift.php';?>
                             </table>
                         </div>
-                        <div class="content-right">
+                        <div class="content-right comment-facebook">
                             <div class="ui comments">
-                            <!-- <h3 class="ui dividing header">Comments</h3> -->
                             <div class="fb-comments" data-href="http://hihichaocau.tk/" data-numposts="5"></div>
                         </div>
                     </div>
@@ -172,6 +164,31 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <!-- Modal information gift -->
+        <div class="ui modal" id="modal-infor-song-gift">
+            <i class="close icon"></i>
+            <div class="header">
+                Thông tin bài hát được tặng
+            </div>
+            <div class="image content">
+                <div class="ui medium image">
+                <img class="image-song" src="/images/avatar/large/chris.jpg">
+                </div>
+                <div class="description">
+                <div class="ui header" id="song-name-gift">Bài hát được tặng</div>
+                <p>Bài hát được tặng từ <strong id="song-sender-gift">Vinh</strong> gửi đến
+                    <strong id="song-receiver-gift">Vinh</strong> lúc <strong id="song-time-gift">Vinh</strong></p>
+                <p>Với lời nhắn:</p>
+                <blockquote><cite id="song-message-gift">Lời nhắn</cite></blockquote>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                Đã xem
+                <i class="checkmark icon"></i>
+                </div>
+            </div>
         </div>
         <iframe width="1" height="1" frameborder="0" allowfullscreen allow="autoplay" id="control-music"></iframe>
     </div>

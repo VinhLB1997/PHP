@@ -60,7 +60,7 @@ class Home extends BaseController
     public function paginationSongGift()
     {
         $page = ($_POST['pageGift']) ?? 0;
-        $limit = 4;
+        $limit = 5;
         $offset = (int) $page * $limit;
         $dataSongGifts = $this->song_gift->getAllSongGifts($limit, $offset);
         $countSongGift = $this->song_gift->countSongGifts();

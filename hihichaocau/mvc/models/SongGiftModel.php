@@ -1,7 +1,7 @@
 <?php
 class SongGiftModel extends Database
 {
-    public function getAllSongGifts($limit = 4, $offset = 0)
+    public function getAllSongGifts($limit = 5, $offset = 0)
     {
         $sql = "SELECT s.name_song, s.link, s.image,
                     sg.name_sender, sg.name_receiver, sg.message, sg.create_at

@@ -148,6 +148,25 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on("click", "i.message-gift", function() {
+    $this = $(this);
+    $tdParent = $this.parent();
+    $song_name = $tdParent.find("input[name=song]").val();
+    $song_sender = $tdParent.find("input[name=sender]").val();
+    $song_receiver = $tdParent.find("input[name=receiver]").val();
+    $song_time = $tdParent.find("input[name=time-send]").val();
+    $song_message = $tdParent.find("input[name=messsage]").val();
+    $image = $tdParent.find("input[name=image]").val();
+    $modal_infor = $("#modal-infor-song-gift");
+    $modal_infor.find("#song-name-gift").text($song_name);
+    $modal_infor.find("#song-sender-gift").text($song_sender);
+    $modal_infor.find("#song-receiver-gift").text($song_receiver);
+    $modal_infor.find("#song-time-gift").text($song_time);
+    $modal_infor.find("#song-message-gift").text($song_message);
+    $modal_infor.find("img.image-song").attr("src", $image);
+    $modal_infor.modal("show");
+  });
+
   // Pagination list song
 
   $(document).on("click", "i.next", function() {
@@ -200,7 +219,7 @@ $(document).ready(function() {
   // Pagination list song gift
   $(document).on("click", "i.next-gift", function() {
     let totalGift = $("table.table-list-song-gift tfoot").data("count-gift");
-    let totalPageGift = Math.ceil(totalGift / 4);
+    let totalPageGift = Math.ceil(totalGift / 5);
     ++pageGift;
     if (pageGift >= totalPageGift) {
       pageGift = 0;
@@ -220,7 +239,7 @@ $(document).ready(function() {
 
   $(document).on("click", "i.previous-gift", function() {
     let totalGift = $("table.table-list-song-gift tfoot").data("count-gift");
-    let totalPageGift = Math.ceil(totalGift / 4);
+    let totalPageGift = Math.ceil(totalGift / 5);
     --pageGift;
     if (pageGift < 0) {
       pageGift = totalPageGift - 1;

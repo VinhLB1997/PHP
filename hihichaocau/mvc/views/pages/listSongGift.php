@@ -11,9 +11,14 @@
         Lúc: &emsp;<i class="info-gift"><?=date_format(date_create($song['create_at']), 'H:i  d-m-Y')?></i>
         </span></td>
         <td class="action-song" data-song-id="<?=$song['link']?>">
-            <i class="circular play icon play-music text-blue link" title="Play Music"></i>
-            <i class="circular comment alternate outline icon text-green"
-                title="You can see detail gift song from sender"></i>
+            <i class="circular play icon play-music text-blue link" title="Phát nhạc"></i>
+            <i class="circular comment alternate outline icon text-green message-gift"
+                title="Xem thông tin bài hát được tặng"></i>
+            <input type="hidden" name="song" value="<?=$song['name_song']?>">
+            <input type="hidden" name="sender" value="<?=$song['name_sender']?>">
+            <input type="hidden" name="receiver" value="<?=$song['name_receiver']?>">
+            <input type="hidden" name="image" value="<?=!empty($song['image']) ? $song['image'] : 'https://stc-id.nixcdn.com/v11/images/avatar_default.jpg'?>">
+            <input type="hidden" name="time-send" value="<?=date_format(date_create($song['create_at']), 'H:i  d-m-Y')?>">
             <input type="hidden" name="messsage" value="<?=$song['message']?>">
         </td>
     </tr>
