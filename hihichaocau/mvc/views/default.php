@@ -75,7 +75,7 @@
         <div class="container-content">
             <div class="slogan-page">
                 <h1 class="text-center">
-                    <marquee width="100%" behavior="alternate" direction="right">Chúc mọi người nghe nhạc vui vẻvẻ</marquee>
+                    <marquee width="100%" behavior="alternate" direction="right">Chúc mọi người nghe nhạc vui vẻ</marquee>
                 </h1>
             </div>
             <div class="wrapper-content">
