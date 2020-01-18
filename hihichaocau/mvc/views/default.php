@@ -22,8 +22,9 @@
     <script type="text/javascript">
         if (screen.width < 1200 || !(navigator.userAgent.indexOf('Chrome') >= 0)) {
             window.onload = function () {
-                document.body.innerHTML = "Chỉ hỗ trợ nền tảng thiết bị là máy tính và trình duyệt Google Chrome";
-                document.body.style.background = "none";
+                // document.body.innerHTML = "Chỉ hỗ trợ nền tảng thiết bị là máy tính và trình duyệt Google Chrome";
+                // document.body.style.background = "none";
+                alert("Vui lòng truy cập website trên máy tính và trình duyệt Google Chrome để trải nghiệm được tốt nhất.");
             }
         }
     </script>

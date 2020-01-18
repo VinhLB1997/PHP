@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const base = window.location.origin;
+  const base = window.location.origin + "/PHP/hihichaocau/";
   var total = $("table.table-list-song tfoot").data("count");
   var page = 0;
   var totalPage = Math.ceil(total / 10);
