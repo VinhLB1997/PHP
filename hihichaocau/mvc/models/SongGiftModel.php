@@ -46,8 +46,10 @@ class SongGiftModel extends Database
 
     public function insertSongGifts($data)
     {
-        $sql = "INSERT INTO song_gifts (song_id, name_sender, name_receiver, `message`)
-            VALUES (:song_id, :name_sender, :name_receiver, :messages)";
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $timeNow = date('Y-m-d H:i');
+        $sql = "INSERT INTO song_gifts (song_id, name_sender, name_receiver, `message`, create_at, update_at)
+            VALUES (:song_id, :name_sender, :name_receiver, :messages, :create_at, :update_at)";
         // Sử đụng Prepare
         $stmt = $this->conn->prepare($sql);
         // Bind param
@@ -55,6 +57,8 @@ class SongGiftModel extends Database
         $stmt->bindValue(':name_sender', $data["name_sender"]);
         $stmt->bindValue(':name_receiver', $data["name_receiver"]);
         $stmt->bindValue(':messages', $data["message"]);
+        $stmt->bindValue(':create_at', $timeNow);
+        $stmt->bindValue(':update_at', $timeNow);
         // Thực thi câu truy vấn
         $result = $stmt->execute();
         return $result;

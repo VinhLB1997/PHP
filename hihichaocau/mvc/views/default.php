@@ -33,9 +33,9 @@
         _cke_saved_src="https://1.bp.blogspot.com/-hIJ6xYT7eYg/WGtqaZpELPI/AAAAAAAAAg8/Ef1sIA0AbqoNU0ey0WvRo2cH69AkdpSpgCLcB/s1600/caudoi4.png" />
     <img style="position:fixed;z-index:9999;top:0;right:0;wight:300px; height: 400px;"
         src="https://1.bp.blogspot.com/-0I4Z9Gxt8gk/WGtqarV3nfI/AAAAAAAAAhA/J8kCaSv7SygkODYHDKhD_CDo2ZhGwvAFQCLcB/s1600/caudoi3.png" /></a> -->
-    <img style="position:fixed;z-index:9999;top:0;left:0;"
+    <img class="group-responsive-none" style="position:fixed;z-index:9999;top:0;left:0;"
         src="http://4.bp.blogspot.com/-Vlt_TV7Q9V8/UsA7lwMZryI/AAAAAAAAA3Q/ref7HQc1968/s1600/banner_left.png" />
-    <img style="position:fixed;z-index:9999;top:0;right:0;"
+    <img class="group-responsive-none" style="position:fixed;z-index:9999;top:0;right:0;"
         src="http://4.bp.blogspot.com/-A85wPjYE2BM/UsA7mDDQWmI/AAAAAAAAA3U/R9bxy6zSrLs/s1600/banner_right.png" />
     <!-- <div
         style="position:fixed;bottom:-50px;left:0;width:100%;height:100%;background:url(https://3.bp.blogspot.com/-uQrQaR3IkxE/WF9dDUUVLLI/AAAAAAAAAdw/VKNA5q7FJSQX5OWofOiPafEEENaoBcY9wCLcB/s1600/nentet.png) repeat-x bottom left;">
@@ -44,11 +44,11 @@
         <input type="checkbox" name="firework" id="firework">
         <label style="color:red; font-weight: bold;">Pháo hoa</label>
     </div>
-    <img style="position:fixed;z-index:9999;bottom:10px;right:5px"
+    <img class="group-responsive-none" style="position:fixed;z-index:9999;bottom:10px;right:5px"
         src="http://3.bp.blogspot.com/-4Zt-ZB4tols/UsA_qIR0w9I/AAAAAAAAA3w/Ffyy-5OqGec/s320/banner_header.png" />
     <div class="wrapper-page">
         <div class="container-header">
-            <div class="gird-item navigation-left">
+            <div class="gird-item navigation-left group-responsive-none">
                 <div id="clockdiv">
                     <div>
                         <span class="days"></span>
@@ -70,7 +70,7 @@
 
             </div>
             <img class="gird-item logo" src="./public/img/hihichaocaulogo.png" alt="Logo website" />
-            <div class="gird-item navigation-right">
+            <div class="gird-item navigation-right group-responsive-none">
                 <img class="gird-item logo" src="./public/img/bg_year.png" alt="Logo website" />
             </div>
         </div>
